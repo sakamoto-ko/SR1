@@ -8,14 +8,32 @@ namespace DogTest
 {
     internal class Dog
     {
-        public void Bark()
+        //field
+        private bool hungryState;
+
+        //method
+
+        //コンストラクタ
+        public Dog()
         {
-            Console.WriteLine("がうがう");
+            hungryState = true;
+        }
+
+        public void Eat()
+        {
+            Console.WriteLine("ぱくぱく");
+            hungryState = false;
         }
 
         public void Run()
         {
             Console.WriteLine("わんわんわん");
+            hungryState = true;
+        }
+
+        public bool IsHungry()
+        {
+            return hungryState;
         }
     }
 }
