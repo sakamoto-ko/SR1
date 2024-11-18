@@ -10,20 +10,54 @@ namespace DogTest
     {
         static void Main(string[] args)
         {
-            Player player = new Player("ロト", 1);
+            //そらとぶを墓をテストする
+            FlyingRobot flyingRobot = new FlyingRobot("そらとぶロボ");
 
-            //課題
-            //player.level = 99999;
-            //Console.WriteLine("レベル：{0}", player.GetLevel());
+            Console.WriteLine("名前：{0}", flyingRobot.GetName());
+            Console.WriteLine("電源：{0}", flyingRobot.GetPowerStatus());
 
-            Console.WriteLine("名前：{0}", player.GetName());
-            Console.WriteLine("レベル：{0}", player.GetLevel());
+            flyingRobot.DropBomb();
 
-            player.Attack();
-            player.Deffence();
+            flyingRobot.PowerOn();
+            flyingRobot.DropBomb();
 
-            player.LevelUp();
-            Console.WriteLine("レベル：{0}", player.GetLevel());
+            flyingRobot.PowerOff();
+
+            //一時停止
+            Console.WriteLine("--------");
+
+            //タンクロボをテストする
+            TankRobot tankRobot = new TankRobot("タンクロボ");
+
+            Console.WriteLine("名前：{0}", tankRobot.GetName());
+            Console.WriteLine("電源：{0}", tankRobot.GetPowerStatus());
+
+            tankRobot.ShotCannon();
+
+            tankRobot.PowerOn();
+            tankRobot.ShotCannon();
+
+            tankRobot.PowerOff();
+
+            //一時停止
+            Console.WriteLine("--------");
+
+            //TankRobotクラスの実態を大量生産
+            TankRobot[] tanks = new TankRobot[5];
+
+            //5体分のインスタンスを作る
+            for (int i = 0; i < tanks.Length; i++)
+            {
+                tanks[i] = new TankRobot("タンクNo." + i);
+            }
+            for (int i = 0; i < tanks.Length; i++)
+            {
+                tanks[i].PowerOn();
+            }
+            foreach(TankRobot tank in tanks)
+            {
+                tank.ShotCannon();
+            }
 
             //一時停止
             Console.ReadLine();
