@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DogTest
+namespace RobotTest
 {
     internal class Robot
     {
@@ -12,31 +12,22 @@ namespace DogTest
         protected string name = "";
         protected bool powerStatus = false;
 
-        //method
-        //電源ON
-        public void PowerOn()
+        //method//コンストラクタ
+        public Robot(string name)
         {
-            powerStatus = true;
-            Console.WriteLine("{0}は、起動した！！", name);
+            this.name = name;
         }
 
-        //電源Off
-        public void PowerOff()
-        {
-            powerStatus = false;
-            Console.WriteLine("{0}は、停止した..", name);
-        }
-
-        //名前取得
+        //nameの値を返す
         public string GetName()
         {
             return name;
         }
 
-        //電源の状態取得
-        public bool GetPowerStatus()
+        //攻撃する
+        public virtual void Attack()
         {
-            return powerStatus;
+            Console.WriteLine("{0}は、攻撃した！", name);
         }
     }
 }
