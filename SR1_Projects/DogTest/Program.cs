@@ -3,10 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
-using FlyingRobotTest;
-using RobotTest;
-using TankRobotTest;
+using System.Xml.Linq;
 
 namespace DogTest
 {
@@ -14,17 +11,23 @@ namespace DogTest
     {
         static void Main(string[] args)
         {
-            Robot robot = new Robot("ロボット");
-            Console.WriteLine("名前:{0}", robot.GetName());
-            robot.Attack();
+            //乱数生成機のインスタンス
+            Random random = new Random(Environment.TickCount);
+            //Listコレクションnumbers
+            List<int> numbers = new List<int>();
 
-            FlyingRobot flyingRobot = new FlyingRobot("空飛ぶロボ");
-            Console.WriteLine("名前:{0}", flyingRobot.GetName());
-            flyingRobot.Attack();
+            //サイコロを10回振る
+            for (int i = 0; i < 10; i++)
+            {
+                //-5～5の範囲の乱数を発生させる
+                numbers.Add(random.Next(-5, 5 + 1));
+            }
 
-            TankRobot tankRobot = new TankRobot("タンクロボ");
-            Console.WriteLine("名前:{0}", tankRobot.GetName());
-            tankRobot.Attack();
+            //全ての中身を表示
+            foreach (int number in numbers)
+            {
+                Console.WriteLine(number);
+            }
 
             //一時停止
             Console.ReadLine();
