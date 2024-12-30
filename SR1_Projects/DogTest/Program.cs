@@ -39,7 +39,7 @@ namespace DogTest
             }
 
             //全ての中身を表示
-            foreach (Robot robot in robots)
+            foreach (Robot robo in robots)
             {
                 robot.Attack();
             }
